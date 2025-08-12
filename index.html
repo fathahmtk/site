@@ -1,36 +1,793 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Noor Digital Solutions W.L.L. - Qatar's premier digital agency offering innovative web development, ERPNext, POS systems, mobile apps, and business services for Qatar and GCC markets.">
-    <meta name="keywords" content="web design Qatar, ERPNext Qatar, POS systems Qatar, digital marketing, mobile app development, Qatar business services">
-    <meta name="author" content="Noor Digital Solutions W.L.L.">
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Noor Digital Solutions W.L.L.",
-        "url": "https://www.noordigital.business",
-        "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Doha",
-            "addressCountry": "Qatar"
-        },
-        "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+97474464994",
-            "contactType": "Customer Service",
-            "email": "info@noordigital.business"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qatar Daily Guide - Your Complete Resource</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6F1E51;
+            --secondary: #8D1B3D;
+            --accent: #00B140;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #6c757d;
+            --light-gray: #e9ecef;
+            --border: #dee2e6;
         }
-    }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .search-bar {
+            flex-grow: 1;
+            max-width: 500px;
+            margin: 0 20px;
+            position: relative;
+        }
+        
+        .search-bar input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            font-size: 1rem;
+        }
+        
+        .search-bar button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--gray);
+            cursor: pointer;
+        }
+        
+        .user-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .user-actions button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        nav {
+            padding: 10px 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .nav-links::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .nav-links li {
+            white-space: nowrap;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), url('https://images.unsplash.com/photo-1610296669228-602fa827fc1f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1475&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #009933;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* Features Section */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .feature-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            height: 150px;
+            background-color: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+        
+        .feature-content {
+            padding: 20px;
+        }
+        
+        .feature-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Quick Links */
+        .quick-links {
+            margin-bottom: 40px;
+        }
+        
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.5rem;
+        }
+        
+        .section-title i {
+            font-size: 1.5rem;
+        }
+        
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+        }
+        
+        .link-card {
+            background: white;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .link-card:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-5px);
+        }
+        
+        .link-card:hover i {
+            color: white;
+        }
+        
+        .link-card i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+        
+        /* Tools Section */
+        .tools {
+            margin-bottom: 40px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .tool-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .tool-card h4 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .tool-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .tool-card li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tool-card li:last-child {
+            border-bottom: none;
+        }
+        
+        .tool-card li i {
+            color: var(--accent);
+        }
+        
+        /* Categories */
+        .categories {
+            margin-bottom: 40px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        
+        .category-card i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col a {
+            color: #adb5bd;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-col a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #343a40;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #343a40;
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .search-bar {
+                width: 100%;
+                max-width: 100%;
+                margin: 10px 0;
+            }
+            
+            .hero {
+                height: 300px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero {
+                height: 250px;
+            }
+            
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <i class="fas fa-compass"></i>
+                    <span>Qatar Daily Guide</span>
+                </div>
+                
+                <div class="search-bar">
+                    <input type="text" placeholder="Search for anything in Qatar...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="user-actions">
+                    <button><i class="fas fa-bell"></i></button>
+                    <button><i class="fas fa-user"></i></button>
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Business</a></li>
+                    <li><a href="#">Food & Dining</a></li>
+                    <li><a href="#">Government Services</a></li>
+                    <li><a href="#">Daily Life</a></li>
+                    <li><a href="#">Events</a></li>
+                    <li><a href="#">Health</a></li>
+                    <li><a href="#">Education</a></li>
+                    <li><a href="#">Transport</a></li>
+                    <li><a href="#">Shopping</a></li>
+                    <li><a href="#">Tourism</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Complete Guide to Life in Qatar</h1>
+            <p>Everything you need for business, daily life, and exploration in Qatar - all in one place</p>
+            <a href="#" class="btn">Explore Qatar</a>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Features Section -->
+        <section class="features">
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Business Resources</h3>
+                    <p>Everything for entrepreneurs: company registration, legal requirements, free business tools, and market insights.</p>
+                    <a href="#" class="btn">Explore Business</a>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-utensils"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Food & Dining Guide</h3>
+                    <p>Discover Qatar's culinary scene: best restaurants, food delivery services, recipes, and food events.</p>
+                    <a href="#" class="btn">Explore Food</a>
+                </div>
+            </div>
+            
+            <div class="feature-card">
+                <div class="feature-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="feature-content">
+                    <h3>Daily Life Essentials</h3>
+                    <p>Practical resources for residents: housing, schools, healthcare, transportation, and shopping guides.</p>
+                    <a href="#" class="btn">Explore Daily Life</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Links -->
+        <section class="quick-links">
+            <h2 class="section-title"><i class="fas fa-bolt"></i> Quick Access</h2>
+            <div class="links-grid">
+                <div class="link-card" onclick="alert('Opening VAT Calculator')">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>VAT Calculator</h3>
+                </div>
+                <div class="link-card" onclick="alert('Checking Traffic Fines')">
+                    <i class="fas fa-car"></i>
+                    <h3>Traffic Fines</h3>
+                </div>
+                <div class="link-card" onclick="alert('Checking Visa Status')">
+                    <i class="fas fa-passport"></i>
+                    <h3>Visa Status</h3>
+                </div>
+                <div class="link-card" onclick="alert('Opening Events Calendar')">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Events Calendar</h3>
+                </div>
+                <div class="link-card" onclick="alert('Showing Weather Forecast')">
+                    <i class="fas fa-cloud-sun"></i>
+                    <h3>Weather</h3>
+                </div>
+                <div class="link-card" onclick="alert('Opening Qatar Map')">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Qatar Map</h3>
+                </div>
+                <div class="link-card" onclick="alert('Opening Arabic Phrases Guide')">
+                    <i class="fas fa-language"></i>
+                    <h3>Arabic Phrases</h3>
+                </div>
+                <div class="link-card" onclick="alert('Showing Emergency Contacts')">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Emergency</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Free Tools Section -->
+        <section class="tools">
+            <h2 class="section-title"><i class="fas fa-tools"></i> Essential Free Tools</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h4><i class="fas fa-calculator"></i> Business Calculators</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> VAT Calculator</li>
+                        <li><i class="fas fa-check-circle"></i> Profit & Loss Calculator</li>
+                        <li><i class="fas fa-check-circle"></i> Salary Calculator</li>
+                        <li><i class="fas fa-check-circle"></i> Currency Converter</li>
+                        <li><i class="fas fa-check-circle"></i> Break-Even Analysis</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h4><i class="fas fa-file-alt"></i> Document Generators</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Business Proposal Templates</li>
+                        <li><i class="fas fa-check-circle"></i> Rental Agreement Generator</li>
+                        <li><i class="fas fa-check-circle"></i> Invoice Templates</li>
+                        <li><i class="fas fa-check-circle"></i> MOCI Forms</li>
+                        <li><i class="fas fa-check-circle"></i> Employment Contracts</li>
+                    </ul>
+                </div>
+                
+                <div class="tool-card">
+                    <h4><i class="fas fa-chart-line"></i> Planning Tools</h4>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Business Plan Builder</li>
+                        <li><i class="fas fa-check-circle"></i> Budget Planner</li>
+                        <li><i class="fas fa-check-circle"></i> Event Planner</li>
+                        <li><i class="fas fa-check-circle"></i> Project Timeline</li>
+                        <li><i class="fas fa-check-circle"></i> Marketing Strategy</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section class="categories">
+            <h2 class="section-title"><i class="fas fa-th-large"></i> Explore Categories</h2>
+            <div class="categories-grid">
+                <div class="category-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Business</h3>
+                    <p>Startups, regulations, tools</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food & Dining</h3>
+                    <p>Restaurants, recipes, delivery</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-landmark"></i>
+                    <h3>Government</h3>
+                    <p>Services, documents, info</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Daily Life</h3>
+                    <p>Housing, shopping, transport</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-heartbeat"></i>
+                    <h3>Health</h3>
+                    <p>Hospitals, clinics, wellness</p>
+                </div>
+                <div class="category-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>Education</h3>
+                    <p>Schools, universities, courses</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Qatar Daily Guide</h3>
+                    <p>Your comprehensive resource for everything in Qatar. Daily updated information for residents, businesses, and visitors.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Sitemap</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="#">Business & Finance</a></li>
+                        <li><a href="#">Food & Dining</a></li>
+                        <li><a href="#">Government Services</a></li>
+                        <li><a href="#">Daily Life</a></li>
+                        <li><a href="#">Events & Activities</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to get daily updates about Qatar</p>
+                    <form>
+                        <input type="email" placeholder="Your Email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;">
+                        <button class="btn" style="width: 100%;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Qatar Daily Guide. All rights reserved. | Designed to serve everyone in Qatar</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive JavaScript for the Qatar Daily Guide
+        document.addEventListener('DOMContentLoaded', function() {
+            // Link card hover effect
+            const linkCards = document.querySelectorAll('.link-card');
+            linkCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.backgroundColor = '#6F1E51';
+                    this.style.color = 'white';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.backgroundColor = 'white';
+                    this.style.color = 'inherit';
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-bar input');
+            const searchBtn = document.querySelector('.search-bar button');
+            
+            searchBtn.addEventListener('click', function() {
+                if(searchInput.value.trim() !== '') {
+                    alert(`Searching for: ${searchInput.value}`);
+                    // In a real app, this would trigger a search function
+                }
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if(e.key === 'Enter') {
+                    if(searchInput.value.trim() !== '') {
+                        alert(`Searching for: ${searchInput.value}`);
+                    }
+                }
+            });
+            
+            // Category card hover effect
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-5px)';
+                    this.style.boxShadow = '0 6px 15px rgba(0,0,0,0.15)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = '0 4px 10px rgba(0,0,0,0.1)';
+                });
+            });
+        });
     </script>
-    <title>Noor Digital Solutions - Qatar's Innovative Digital Agency</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/index.jsx"></script>
-  </body>
+</body>
 </html>
